@@ -1,0 +1,276 @@
+/* ============================================================
+   WeLive2Inspire.com
+   Personal website for Stefanos Evangelos Tzivopoulos
+   All styles live in this single file (per project rules).
+   ============================================================ */
+
+:root {
+  --blue:       #0d5eaf;
+  --blue-dark:  #08406f;
+  --gold:       #f5b301;
+  --ink:        #1c2430;
+  --muted:      #5a6675;
+  --bg:         #ffffff;
+  --bg-alt:     #f3f7fb;
+  --max-width:  960px;
+  --radius:     12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+}
+
+/* ---------------------------- Header / Nav --------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #e4ebf2;
+}
+
+.navbar {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.brand {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.4rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+/* -------------------------------- Hero ------------------------------ */
+
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-text {
+  padding: 2.5rem 1.25rem 3.25rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.tagline {
+  margin-top: 0.6rem;
+  font-size: 1.05rem;
+  opacity: 0.92;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.6rem;
+  padding: 0.75rem 1.8rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------------------ Sections ---------------------------- */
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3.5rem 1.25rem;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+  max-width: none;
+}
+
+.section-alt > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section h2,
+.section-alt h2 {
+  font-size: 1.7rem;
+  color: var(--blue-dark);
+  margin-bottom: 1.4rem;
+  text-align: center;
+  position: relative;
+}
+
+.section h2::after,
+.section-alt h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 4px;
+  margin: 0.6rem auto 0;
+}
+
+.about-grid {
+  display: grid;
+  gap: 1.25rem;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.about-grid strong {
+  color: var(--ink);
+}
+
+/* --------------------------- Achievements --------------------------- */
+
+.achievement-list {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.achievement-list li {
+  background: #fff;
+  border: 1px solid #e4ebf2;
+  border-left: 4px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.medal {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ------------------------------ Contact ----------------------------- */
+
+.contact-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1.6rem;
+}
+
+.contact-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contact-links a {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--blue);
+  border-radius: 50px;
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.contact-links a:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* ------------------------------ Footer ------------------------------ */
+
+.site-footer {
+  background: var(--blue-dark);
+  color: #cfe0f0;
+  text-align: center;
+  padding: 1.6rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* --------------------------- Responsive ----------------------------- */
+
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+  .hero-photo img {
+    max-height: 300px;
+  }
+}
