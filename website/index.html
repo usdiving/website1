@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stefanos Evangelos Tzivopoulos &mdash; We Live 2 Inspire</title>
-  <meta name="description" content="The personal website of Stefanos Evangelos Tzivopoulos &mdash; world champion diver, coach, and lifelong inspirer. We Live 2 Inspire.">
+  <title>Take Control of Your Health &mdash; Zinzino with Stefanos</title>
+  <meta name="description" content="Discover Zinzino health products, take a free balance test, and join a movement led by world champion Stefanos Tzivopoulos.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -14,9 +17,10 @@
     <nav class="navbar">
       <a href="#home" class="brand">WeLive<span>2</span>Inspire</a>
       <ul class="nav-links">
+        <li><a href="#quiz">Health Quiz</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#partner">Partner</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#coaching">Coaching</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -24,89 +28,288 @@
 
   <main>
 
+    <!-- Health Quiz -->
+    <section id="quiz" class="quiz-section">
+      <div class="quiz-wrapper">
+        <p class="quiz-eyebrow">Free Balance Assessment</p>
+        <h2 class="quiz-title">Is Your Body in Balance?</h2>
+        <p class="quiz-subtitle">
+          Answer 5 quick questions and find out what your body is telling you.
+        </p>
+
+        <div class="quiz-launch" id="quizLaunch">
+          <div class="quiz-launch-icon">&#129707;</div>
+          <p class="quiz-launch-text">
+            Ready to find out if your body is in balance?
+          </p>
+          <button class="btn btn-primary btn-large js-quiz-trigger" id="quizStartBtn">
+            Start the Free Quiz &rarr;
+          </button>
+        </div>
+
+        <!-- Email gate — shown after launch, before quiz -->
+        <div class="quiz-email-gate" id="quizEmailGate">
+          <div class="quiz-email-icon">&#128140;</div>
+          <h3 class="quiz-email-heading">
+            Where should we send your results?
+          </h3>
+          <p class="quiz-email-text">
+            Enter your email and we&rsquo;ll send your personalized
+            health balance results straight to your inbox &mdash; for free.
+          </p>
+          <form id="quizEmailForm" class="quiz-email-form" novalidate>
+            <input
+              type="email"
+              id="visitorEmail"
+              class="quiz-email-input"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            >
+            <p class="quiz-email-error" id="emailError"></p>
+            <button type="submit" class="btn btn-primary btn-large">
+              Take the Free Quiz &rarr;
+            </button>
+          </form>
+          <p class="quiz-email-privacy">
+            &#128274; Your email is safe with us. No spam, ever.
+          </p>
+        </div>
+
+        <div class="quiz-card quiz-card--hidden" id="quizCard">
+
+          <!-- Progress bar -->
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-fill" id="quizProgress"></div>
+          </div>
+          <p class="quiz-step-label" id="quizStepLabel">Question 1 of 5</p>
+
+          <!-- Question area -->
+          <div id="quizQuestion" class="quiz-question-area"></div>
+
+          <!-- Answer options -->
+          <div id="quizOptions" class="quiz-options"></div>
+
+          <!-- Next button (hidden until answer chosen) -->
+          <div class="quiz-nav">
+            <button id="quizNext" class="btn btn-primary" style="display:none;">
+              Next &rarr;
+            </button>
+          </div>
+
+          <!-- Result (hidden initially) -->
+          <div id="quizResult" class="quiz-result" style="display:none;"></div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Hero -->
     <section id="home" class="hero">
-      <div class="hero-photo">
-        <img src="images/stefanos.jpg"
-             alt="Stefanos Evangelos Tzivopoulos celebrating with the Greek flag and a championship medal">
-      </div>
-      <div class="hero-text">
-        <p class="eyebrow">We Live 2 Inspire</p>
-        <h1>Stefanos Evangelos Tzivopoulos</h1>
-        <p class="tagline">World Champion Diver &middot; Coach &middot; Inspirer</p>
-        <a href="#about" class="btn">Discover My Story</a>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Zinzino &middot; WeLive2Inspire</p>
+          <h1>Take Control of the Balance of Your Health</h1>
+          <p class="tagline">
+            Science-based health products that bring your body back into balance.
+          </p>
+          <div class="hero-buttons">
+            <a href="#quiz" class="btn btn-gold js-quiz-trigger">
+              &#10003; Take the Health Quiz
+            </a>
+            <a href="https://www.zinzino.com/2020240904" class="btn btn-white" target="_blank" rel="noopener">
+              Shop Zinzino Products
+            </a>
+            <a href="#" class="btn btn-outline" target="_blank" rel="noopener">
+              Become a Partner
+            </a>
+            <a href="https://zinzino.tv/videos/0690dbbc1f1eedcf8f/buisness-presentation"
+               class="btn btn-outline btn-video-hero" target="_blank" rel="noopener">
+              &#9654; Business Presentation
+            </a>
+          </div>
+        </div>
+        <div class="hero-product-img">
+          <div class="product-glow"></div>
+          <img src="images/zinzino-products.png"
+               alt="Zinzino BalanceOil+ and BalanceTest kit">
+        </div>
       </div>
     </section>
 
-    <!-- About -->
+    <!-- Wake-Up Call -->
+    <section class="wake-up">
+      <div class="wake-up-inner">
+        <h2 class="wake-up-headline">
+          Listen to What Your Body Is Telling You.
+        </h2>
+        <div class="wake-up-questions">
+          <p class="wake-q">Is your body <strong>hurting</strong>?</p>
+          <p class="wake-q">Do you feel <strong>slower</strong> than you used to?</p>
+          <p class="wake-q">Are you struggling with <strong>fatigue</strong> that just won&rsquo;t go away?</p>
+          <p class="wake-q">Are you facing <strong>insomnia</strong>, restless nights, no energy in the morning?</p>
+          <p class="wake-q">Do you have <strong>digestive or colon issues</strong> that hold you back?</p>
+          <p class="wake-q">Does something just feel&hellip; <strong>off</strong> &mdash; and you can&rsquo;t explain why?</p>
+        </div>
+        <p class="wake-up-bridge">
+          Your body is not giving up on you &mdash; it&rsquo;s asking for balance.<br>
+          The question is: <strong>is your body in balance right now?</strong><br>
+          Do you want to know &mdash; and if not, exactly how to fix it?
+        </p>
+        <div class="wake-up-cta">
+          <p class="wake-up-cta-label">
+            Answer these <strong>5 simple questions</strong> and find out:
+          </p>
+          <a href="#quiz" class="btn btn-gold btn-large js-quiz-trigger">
+            &#10003;&nbsp; Take the Free 5-Question Health Quiz
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="section section-alt">
+      <h2>Zinzino Health Products</h2>
+      <div class="product-cards">
+        <div class="product-card">
+          <div class="product-icon">&#9749;</div>
+          <h3>Balance Oil</h3>
+          <p>Restore your omega-6:3 ratio with
+          premium cold-pressed fish and plant oils.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">&#127807;</div>
+          <h3>Gut Health</h3>
+          <p>Support your microbiome with probiotics
+          and plant-based fiber blends.</p>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">&#128170;</div>
+          <h3>Immune Support</h3>
+          <p>Strengthen your defenses with
+          vitamins D3, K2, and antioxidants.</p>
+        </div>
+      </div>
+      <div class="cta-center">
+        <a href="https://www.zinzino.com/2020240904" class="btn btn-primary" target="_blank" rel="noopener">
+          Shop All Zinzino Products
+        </a>
+      </div>
+    </section>
+
+    <!-- Partner -->
+    <section id="partner" class="section">
+      <h2>Become a Zinzino Partner</h2>
+      <div class="about-grid">
+        <p>
+          Love the products? Share them and earn. Becoming a Zinzino partner
+          means you help others feel their best while building a meaningful
+          income for yourself.
+        </p>
+        <p>
+          Join a global health movement and turn your passion into purpose.
+          No experience needed &mdash; just a desire to make a difference.
+        </p>
+      </div>
+      <div class="cta-center">
+        <a href="#" class="btn btn-primary" target="_blank" rel="noopener">
+          Start Your Partner Journey
+        </a>
+        <a href="https://zinzino.tv/videos/0690dbbc1f1eedcf8f/buisness-presentation"
+           class="btn btn-video" target="_blank" rel="noopener">
+          &#9654; Watch Business Presentation
+        </a>
+      </div>
+    </section>
+
+    <!-- Zoom Meeting -->
+    <section id="zoom" class="section section-alt">
+      <h2>Join Us Live on Zoom</h2>
+      <p class="contact-intro">
+        Have questions? Want to learn more about Zinzino?<br>
+        Join our next live info session &mdash; no commitment, just good conversation.
+      </p>
+      <div class="cta-center">
+        <a href="#" class="btn btn-primary" target="_blank" rel="noopener">
+          &#128249; Join Zoom Meeting
+        </a>
+      </div>
+    </section>
+
+    <!-- About Stefanos -->
     <section id="about" class="section">
-      <h2>About Stefanos</h2>
-      <div class="about-grid">
-        <p>
-          Stefanos Evangelos Tzivopoulos is a world champion diver, European and
-          Pan-American champion, and a devoted diving and gymnastics coach. Across
-          a career spanning decades, he has earned <strong>25 national titles</strong>
-          and stood on the highest podiums of the sport &mdash; from the Mediterranean
-          Games to World Masters Championships.
-        </p>
-        <p>
-          Born and raised in Greece and now coaching in the United States, Stefanos
-          lives by a single guiding mission: <em>to transfer his passion and love for
-          sport &mdash; and to make people feel healthy, confident, and mentally
-          strong.</em> That mission is the heart of <strong>We Live 2 Inspire</strong>.
-        </p>
-      </div>
-    </section>
-
-    <!-- Achievements -->
-    <section id="achievements" class="section section-alt">
-      <h2>Career Highlights</h2>
-      <ul class="achievement-list">
-        <li><span class="medal">&#127942;</span> 14-time Golden Senior National Champion in diving (1985&ndash;2013)</li>
-        <li><span class="medal">&#127942;</span> 25 national titles across senior, junior, and youth categories</li>
-        <li><span class="medal">&#127942;</span> USA National Champion in multiple events (2014)</li>
-        <li><span class="medal">&#127942;</span> European Champion &mdash; 1m springboard &amp; 10m platform (2013)</li>
-        <li><span class="medal">&#127942;</span> 4-time Pan-American Men's Champion (2013)</li>
-        <li><span class="medal">&#127942;</span> Mediterranean Games Gold Medalist, 10m platform (2002)</li>
-        <li><span class="medal">&#127942;</span> Top 12 worldwide, 10m synchro (2001 World Championships, Japan)</li>
-        <li><span class="medal">&#127942;</span> Named Elite Athlete by Greece's Ministry of National Defense</li>
-      </ul>
-    </section>
-
-    <!-- Coaching -->
-    <section id="coaching" class="section">
-      <h2>Coaching &amp; Mission</h2>
-      <div class="about-grid">
-        <p>
-          As a certified USA Diving and AAU coach, Stefanos has guided athletes of
-          every level &mdash; from age-group beginners at Greek academies to American
-          Olympic diver Kyle Prandi. He has led gymnastics and trampoline programs at
-          Chelsea Piers and Masters diving at Team New York Aquatics.
-        </p>
-        <p>
-          Through his <strong>I Love Aquatics</strong> platform, he shares technique,
-          conditioning, and the mindset that turns effort into excellence. Whether on
-          the springboard or in life, his message stays the same: keep reaching higher,
-          stay strong, and <em>live to inspire</em>.
-        </p>
+      <h2>Meet Your Guide to Better Health</h2>
+      <div class="stefanos-grid">
+        <div class="stefanos-photo">
+          <img src="images/Stefanos_diamond.jpg"
+               alt="Stefanos Evangelos Tzivopoulos, world champion and Zinzino brand ambassador">
+        </div>
+        <div class="stefanos-bio">
+          <h3>Stefanos Evangelos Tzivopoulos</h3>
+          <ul class="stefanos-roles">
+            <li>&#127942; Multiple-Time World, European &amp; National Champion</li>
+            <li>&#127979; Professional Elite Coach &amp; Mentor</li>
+            <li>&#127775; Celebrity Athlete &amp; Motivational Speaker</li>
+            <li>&#127807; Health &amp; Wellness Advisor</li>
+            <li>&#129309; Network Marketing Specialist</li>
+          </ul>
+          <p>
+            Stefanos is a multiple-time <strong>World, European, and National
+            Champion</strong> in diving &mdash; one of the most decorated
+            athletes in his sport. Honored with multiple national and
+            international awards for his extraordinary and versatile
+            abilities, he stands as a true ambassador of excellence both
+            in competition and in life.
+          </p>
+          <p>
+            As a <strong>professional elite coach</strong>, Stefanos has
+            guided numerous athletes to championship titles, proving his
+            ability to develop future stars at the highest level.
+            A trusted <strong>mentor to many successful professionals</strong>,
+            he brings the same relentless drive to networking &mdash;
+            recruiting and elevating new talent in both sports and business.
+          </p>
+          <p>
+            Today, Stefanos channels this lifetime of achievement into
+            helping people reclaim their health and build a life of purpose
+            through Zinzino.
+            <em>His mission: inspire people everywhere to live stronger,
+            healthier, and more balanced lives.</em>
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="section section-alt">
       <h2>Connect</h2>
-      <p class="contact-intro">Let's stay healthy, strong, and inspired together.</p>
+      <p class="contact-intro">
+        Let&rsquo;s stay healthy, strong, and inspired together.
+      </p>
       <ul class="contact-links">
-        <li><a href="https://iloveaquatics.com/" target="_blank" rel="noopener">I Love Aquatics</a></li>
-        <li><a href="https://www.instagram.com/usdiving/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.linkedin.com/in/evangelos-stefanos-tzivopoulos-78746997/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li>
+          <a href="https://iloveaquatics.com/" target="_blank" rel="noopener">
+            I Love Aquatics
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/usdiving/"
+             target="_blank" rel="noopener">Instagram</a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/evangelos-stefanos-tzivopoulos-78746997/"
+             target="_blank" rel="noopener">LinkedIn</a>
+        </li>
       </ul>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Stefanos Evangelos Tzivopoulos &middot; WeLive2Inspire.com</p>
+    <p>
+      &copy; <span id="year"></span>
+      Stefanos Evangelos Tzivopoulos &middot; WeLive2Inspire.com
+    </p>
   </footer>
 
   <script src="script.js"></script>
