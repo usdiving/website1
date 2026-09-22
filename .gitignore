@@ -110,3 +110,5 @@ pnpm-debug.log*
 # Miscellaneous
 output/
 tmp/
+**/.obsidian
+
